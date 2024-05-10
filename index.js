@@ -13,12 +13,18 @@ const distance = 0; // distance (km)
 const initialFuel = 5000; // remaining fuel (kg)
 const fuelBurnRate = 0.5; // fuel burn rate (kg/s)
 
+const quantities = {
+  velocity: initialVelocity,
+  acceleration: acceleration,
+  time: timeInSeconds,
 
+}
 const finalDistance = distance + (initialVelocity * timeInSeconds / 3600) //calcultes new distance
 const remainingFuel = initialFuel - (fuelBurnRate * timeInSeconds) //calculates remaining fuel
 
 // Pick up an error with how the function below is called and make it robust to such errors
-const calcNewVel = (velocity, acceleration, time) => { 
+const calcNewVel = (quantities) => {
+  const {velocity, acceleration, time} = quantities
   return velocity + ((acceleration * 12960) * (time / 3600))
 }
 
