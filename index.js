@@ -17,18 +17,21 @@ const quantities = {
   velocity: initialVelocity,
   acceleration: acceleration,
   time: timeInSeconds,
-
 }
 const finalDistance = distance + (initialVelocity * timeInSeconds / 3600) //calcultes new distance
 const remainingFuel = initialFuel - (fuelBurnRate * timeInSeconds) //calculates remaining fuel
 
 // Pick up an error with how the function below is called and make it robust to such errors
 const calcNewVel = (quantities) => {
+  if (!quantities) throw new Error('"quantities" is required to calc final velocity')
   const {velocity, acceleration, time} = quantities
+  if (!velocity) throw new Error('"velocity" is required to calc final speed')
+  if (!acceleration) throw new Error('"constant acceleration" is required to calc final speed')
+  if (!time) throw new Error('"time" is required to calc final speed')
   return velocity + ((acceleration * 12960) * (time / 3600))
 }
 
-const finalVelocity = calcNewVel(initialVelocity, acceleration, timeInSeconds) //calculates new velocity based on acceleration
+const finalVelocity = calcNewVel(quantities) //calculates new velocity based on acceleration
 
 
 
