@@ -1,5 +1,5 @@
-const TIME_CONVERSION = 3600
-const CONVERSION_FACTOR = 12960
+const TIME_CONVERSION = 3600 // seconds in a hour
+const CONVERSION_FACTOR = 12960 // convert m.s^2 to k.h^2
 /**
  * Debugging Guide
  * 1. Make the code more readable
